@@ -1,15 +1,20 @@
-# React + TypeScript + Vite
+# Diobank Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este projeto representa o desafio do curso "Fulstack typescript" da DIO, focado na criação de um sistema básico de banco digital com um login.
 
-Currently, two official plugins are available:
+## Tecnologias Utilizadas
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+-   **React:** Biblioteca JavaScript para construção de interfaces de usuário.
+-   **TypeScript:** Superset tipado do JavaScript para maior segurança e manutenibilidade.
+-   **Vite:** Ferramenta de build para frontend rápida.
+-   **Jest:** Framework de testes JavaScript.
+-   **React Testing Library:** Biblioteca para testar componentes React de forma eficiente.
+-   **Tailwind CSS:** Framework CSS utility-first para estilização rápida.
 
-## Expanding the ESLint configuration
+## Como Configurar e Rodar o Projeto Localmente
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+1.  Clone o repositório:
+
 
 ```js
 export default tseslint.config({
