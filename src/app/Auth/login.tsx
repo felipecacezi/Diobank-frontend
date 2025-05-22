@@ -2,12 +2,24 @@ import { InputText } from "../../components/InputText"
 import { LabelInput } from "../../components/LabelInput"
 import { Button } from "../../components/Button"
 import { useNavigate } from "react-router-dom"
+import { useContext, useState } from 'react'
+import { AppContext } from '../../components/ContextApi'
 
-
-export const Login = () => {
+export function Login(){
+    const { setIsLoggedIn, setUserName } = useContext(AppContext);
     const navigate = useNavigate();
+    const [loginName, setLoginName] = useState('');
+    const [password, setPassword] = useState('');
 
     const handleLogin = ()=>{ 
+        if (loginName !== 'admin' && password !== 'admin') {
+            alert(`Atenção, usuario ou senha inválidos.`);
+            return;
+        }
+
+        localStorage.setItem('loggedUser', loginName);
+        setIsLoggedIn(true);
+        setUserName(loginName);
         navigate('/dashboard');
     }
 
@@ -21,12 +33,19 @@ export const Login = () => {
 
             <div className="mb-5">
                 <LabelInput id="lblEmail" text="E-mail"/>
-                <InputText id="email" name="email" type="email" placeholder="seuemail@email.com" />
+                <InputText id="email" 
+                    name="email" 
+                    type="email" 
+                    placeholder="seuemail@email.com"
+                    onChange={(e) => setLoginName(e.target.value)} />
             </div>
 
             <div className="mb-2">
                 <LabelInput id="lblSenha" text="Senha"/>
-                <InputText id="password" name="password" type="password" />
+                <InputText id="password" 
+                    name="password" 
+                    type="password" 
+                    onChange={(e)=> setPassword(e.target.value)} />
             </div>
 
             <div className="flex justify-end mb-5">

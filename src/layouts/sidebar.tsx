@@ -1,6 +1,6 @@
-import { HomeIcon, BanknotesIcon, UserIcon } from '@heroicons/react/24/outline';
+import { HomeIcon, BanknotesIcon, UserIcon, ArrowRightEndOnRectangleIcon } from '@heroicons/react/24/outline';
 
-export const Sidebar = ()=>(
+export const Sidebar = ({ callbackLogout })=>(
   <div className="flex-1 bg-blue-500">
     <aside id="default-sidebar"
         className="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0"
@@ -39,7 +39,13 @@ export const Sidebar = ()=>(
                         <span className="ml-3">Minha Conta</span>
                     </a>
                 </li>
-
+                <li>
+                    <a onClick={callbackLogout}
+                        className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg transition duration-75 hover:bg-gray-100 dark:hover:bg-gray-700 dark:text-white group">
+                        <ArrowRightEndOnRectangleIcon className="h-6 w-6 text-gray-500" aria-hidden="true" />                    
+                        <span className="ml-3">Sair</span>
+                    </a>
+                </li>
             </ul>
         </div>
     </aside>
