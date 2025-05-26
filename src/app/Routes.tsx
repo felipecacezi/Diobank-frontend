@@ -1,16 +1,17 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import { Login } from "../app/Auth/login"
-import { Dashboard } from "../app/Dashboard/dashboard"
-import { useContext } from "react";
-import { AppContext } from "../components/ContextApi";
+import { User } from "../app/User/user"
 
 export const MainRoutes = () => {
-    const { isLoggedIn } = useContext(AppContext);
+    let loggedIn = false;
+    if (localStorage.getItem("loggedUser")) {
+        loggedIn = true;
+    }
 
     return (
         <Routes>
             <Route path="/" element={<Login />} />
-            <Route path="/dashboard" element={isLoggedIn ? <Dashboard /> : <Login/> } />
+            <Route path="/user" element={loggedIn ? <User/> : <Login/> } />
         </Routes>
     );
 }

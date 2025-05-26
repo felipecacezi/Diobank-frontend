@@ -2,7 +2,7 @@ import { InputText } from "../../components/InputText"
 import { LabelInput } from "../../components/LabelInput"
 import { Button } from "../../components/Button"
 import { useNavigate } from "react-router-dom"
-import { useContext, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { AppContext } from '../../components/ContextApi'
 
 export function Login(){
@@ -22,6 +22,15 @@ export function Login(){
         setUserName(loginName);
         navigate('/dashboard');
     }
+
+    useEffect(() => {
+        const loggedUser = localStorage.getItem('loggedUser');
+        if (loggedUser) {
+            setIsLoggedIn(true);
+            setUserName(loggedUser);
+            navigate('/user');
+        }
+    }, [setIsLoggedIn, setUserName, navigate]);
 
     return (
         <div className="w-screen h-screen flex justify-center items-center">
